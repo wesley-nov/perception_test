@@ -14,8 +14,8 @@ coordinates = rospy.get_param('/' + bullseye_location)
 def bullseyeCallback(image):
 
     cv_image = bridge.imgmsg_to_cv2(image, desired_encoding='passthrough')
-    cv_image = cv2.circle(cv_image, (coordinates['x'], coordinates['y']), radius = 5, color=(255,0,0), thickness=6)
-    # cv2.imwrite("/home/roboeyes/catkin_ws/test.jpg", cv_image)
+    cv_image = cv2.circle(cv_image, (coordinates['x'], coordinates['y']), radius = 3, color=(255,0,0), thickness=2)
+    # cv2.imwrite("test.jpg", cv_image)
     image = bridge.cv2_to_imgmsg(cv_image, encoding="passthrough")
     pub.publish(image)
 

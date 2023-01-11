@@ -1,11 +1,11 @@
 left_screen:
-  x: 100
-  y: 100
+  x: 20
+  y: 180
 
 middle_screen: 
   x: 320
   y: 180
 
 right_screen: 
-  x: 500
-  y: 100
+  x: 600
+  y: 180

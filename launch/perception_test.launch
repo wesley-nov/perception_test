@@ -5,11 +5,15 @@
 <rosparam command="load" file="$(find perception_test)/config/bullseyes_location.yaml"/>
 
 <!-- Configurable bullseye locations: left_screen, middle_screen, right_screen -->
-<arg name="bullseye_location" default="right_screen"/> 
+<arg name="bullseye_location" default="left_screen"/> 
 
 <node name="bullseye" pkg="perception_test" type="bullseye.py" output="screen" clear_params="true" >
     <param name="bullseye_location" value="$(arg bullseye_location)" />
 </node>
 
 <node name="depth_checker_cpp" pkg="perception_test" type="depth_checker_cpp" args="$(arg bullseye_location)" output="screen" />
+
+
+<node type="rviz" name="rviz" pkg="rviz" args="-d $(find perception_test)/rviz/bullseye_display.rviz" />
+
 </launch>
